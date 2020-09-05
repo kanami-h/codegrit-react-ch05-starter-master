@@ -5,7 +5,19 @@ import ThemeSwitcher from './ThemeSwitcher';
 import CardSwitcher from './CardSwitcher'
 import { ReactComponent as LoadingImg } from '../images/loading.svg';
 import { fetchData } from '../CardDataUtils';
-import { css, jsx } from '@emotion/core'
+import { css } from '@emotion/core';
+
+const InstaCard = css(
+  {
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: '614px',
+    width: '100%',
+    height: '600px',
+    border: '1px solid #e6e6e6',
+    borderRadius: '5px',
+  }
+)
 
 const EmptyBox = () => {
   const loaderWrapperStyle = css({
@@ -16,7 +28,7 @@ const EmptyBox = () => {
     width: '100%',
   })
   return (
-    <article className="insta-card" style={{ height: 600 }}>
+    <article css={InstaCard}>
       <div css={loaderWrapperStyle}>
         <LoadingImg />
       </div>
@@ -77,7 +89,7 @@ export default class extends Component {
       articlePart = <EmptyBox />;
     } else {
       articlePart = (
-        <article className={instaCardClass}>
+        <article css={InstaCard}>
           <Header theme={theme} data={data} />
           <Body theme={theme} data={data} chosenId={chosenId} />
         </article>
