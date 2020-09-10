@@ -5,34 +5,38 @@ import ThemeSwitcher from './ThemeSwitcher';
 import CardSwitcher from './CardSwitcher'
 import { ReactComponent as LoadingImg } from '../images/loading.svg';
 import { fetchData } from '../CardDataUtils';
-import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 
-const InstaCard = css(
-  {
-    display: 'flex',
-    flexDirection: 'column',
-    maxWidth: '614px',
-    width: '100%',
-    height: '600px',
-    border: '1px solid #e6e6e6',
-    borderRadius: '5px',
+
+const InstaCard = styled.article({
+  display: 'flex',
+  flexDirection: 'column',
+  maxWidth: '614px',
+  width: '100%',
+  border: '1px solid #e6e6e6',
+  borderRadius: '5px',
+},({ theme }) => {
+  let darkMode = []
+  if(theme === 'dark') {
+    darkMode.push({ backgroundColor: '#262626', color: '#999' })
   }
-)
+  return darkMode;
+})
 
 const EmptyBox = () => {
-  const loaderWrapperStyle = css({
+  const loaderWrapperStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
     width: '100%',
-  })
+  }
   return (
-    <article css={InstaCard}>
+    <InstaCard>
       <div css={loaderWrapperStyle}>
         <LoadingImg />
       </div>
-    </article>
+    </InstaCard>
   );
 }
 
@@ -89,10 +93,10 @@ export default class extends Component {
       articlePart = <EmptyBox />;
     } else {
       articlePart = (
-        <article css={InstaCard}>
+        <InstaCard theme={theme}>
           <Header theme={theme} data={data} />
           <Body theme={theme} data={data} chosenId={chosenId} />
-        </article>
+        </InstaCard>
       );
     }
     return (
