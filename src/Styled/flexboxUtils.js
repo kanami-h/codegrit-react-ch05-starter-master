@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 
 const FlexListContainer = styled.ul({
   display: 'flex'
-},({ direction }) => {})
-let flexStyles = []
-if(direction === 'column') {
-  styles.push({ flexDirection: 'row' })
-} 
-return flexStyles;
+},({ direction }) => {
+  let flexStyles = []
+  if(direction === 'column') {
+    flexStyles.push({ flexDirection: 'column' })
+  } 
+  return flexStyles;
+})
 
 
 export default FlexListContainer;
