@@ -3,7 +3,7 @@ import Avatar from '../images/avatar-one.png';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-const headerStyle = styled.section({
+const HeaderStyle = styled.section({
   display: 'flex',
   alignItems: 'center',
   borderBottom: '1px solid #efefef',
@@ -11,11 +11,11 @@ const headerStyle = styled.section({
   height: '60px',
 })
 
-const posterAvatar = styled.div({
+const PosterAvatar = styled.div({
   marginRight: '12px'
 })
 
-const posterAvatarImg = styled.img({
+const PosterAvatarImg = styled.img({
   borderRadius: '50%',
   border: '1px solid #dddddd',
   height: '30px',
@@ -25,14 +25,14 @@ const posterAvatarImg = styled.img({
 
 const Header = ({ data }) => {
   return (
-    <headerStyle>
-      <posterAvatar>
-        <posterAvatarImg alt="アバター" src={data.posterAvatar} />
-      </posterAvatar>
+    <HeaderStyle>
+      <PosterAvatar>
+        <PosterAvatarImg alt="アバター" src={data.posterAvatar} />
+      </PosterAvatar>
       <div className="poster-name">
         {data.poster}
       </div>
-    </headerStyle>
+    </HeaderStyle>
   )
 }
 
