@@ -3,15 +3,34 @@ import PropTypes from 'prop-types';
 import MainIcons from './MainIcons';
 import Comments from './Comments';
 import CommentBox from './CommentBox'
+import styled from '@emotion/styled';
+
+const CardMain = styled.section({
+  padding: '0 16px'
+})
+
+const PostDate = styled.div({
+  marginBottom: '4px',
+  fontSize: '10px',
+  letterSpacing: '.2px',
+  color: '#999',
+  marginBottom: '5px',
+  textTransform: 'uppercase',
+})
+
+const LikeCounts = styled.div({
+  fontWeight: 'bold',
+  marginBottom: '8px',
+})
 
 const BodyMain = ({ theme, chosenId, data }) => (
-  <section className="card-main">
+  <CardMain>
     <MainIcons theme={theme} />
-    <div className="card-like-counts">100 likes</div>
+    <LikeCounts>100 likes</LikeCounts>
     <Comments data={data} />
-    <div className="post-date">1日前</div>
+    <PostDate>1日前</PostDate>
     <CommentBox chosenId={chosenId} />
-  </section>
+  </CardMain>
 );
 
 Comment.propTypes = {

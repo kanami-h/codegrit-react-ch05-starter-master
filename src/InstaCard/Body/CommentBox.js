@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+
+const CommentBox = styled.section({
+  borderTop: '1px solid #efefef',
+  color: '#999',
+  minHeight: '56px',
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '0.9em'
+})
 
 export default class extends Component {
   static propTypes = {
@@ -24,9 +34,9 @@ export default class extends Component {
   render() {
     const { comment } = this.state;
     return (
-      <section className="comment-box">
+      <CommentBox>
         <div className="comment-area">{comment === '' ? "コメントする" : comment}</div>
-      </section>
+      </CommentBox>
     );
   }
 }

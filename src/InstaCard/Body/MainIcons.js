@@ -6,10 +6,26 @@ import BubbleImg from '../../images/bubble.png';
 import BubbleImgDark from '../../images/bubble-gray.png';
 import BookmarkImg from '../../images/bookmark.png';
 import BookmarkImgDark from '../../images/bookmark-gray.png';
+import styled from '@emotion/styled';
+
+const CardMainIcons = styled.div`
+  margin-top: 4px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & > ul > li {
+    margin-right: 5px;
+  }
+`
+  
+const FlexContainer = styled.ul`
+  display: flex;
+`
 
 const MainIcons = ({ theme }) => (
-  <div className="card-main-icons">
-    <ul className="flex-container card-main-icons-left">
+  <CardMainIcons>
+    <FlexContainer>
       <li className="icon-heart">
         <img
           alt="heart-icon"
@@ -22,16 +38,16 @@ const MainIcons = ({ theme }) => (
           src={theme === 'light' ? BubbleImg : BubbleImgDark}
           height="30px"/>
       </li>
-    </ul>
-    <ul className="flex-container card-main-icons-right">
+    </FlexContainer>
+    <FlexContainer>
       <li className="icon-bookmark icons-right">
         <img 
           alt="bookmark-icon"
           src={theme === 'light' ? BookmarkImg : BookmarkImgDark}
           height="30px"/>
       </li>
-    </ul>
-  </div>
+    </FlexContainer>
+  </CardMainIcons>
 );
 
 Comment.propTypes = {

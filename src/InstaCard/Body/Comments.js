@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import Comment from './Comment';
 import styled from '@emotion/styled';
 
-const CommentsStyle = styled.ul ({
-  marginBottom: '4px'
-})
+const CommentsStyle = styled.ul`
+  margin-bottom: 4px;
+  & li > a {
+    margin-right: .3em;
+  }
+`
+
 
 const Comments = ({ data }) => {
   const { commentOne, commentTwo } = data;
@@ -14,7 +18,7 @@ const Comments = ({ data }) => {
       <Comment
         username={commentOne.poster}
         comment={commentOne.body} />
-        <Comment
+      <Comment
         username={commentTwo.poster}
         comment={commentTwo.body} />
     </CommentsStyle>
