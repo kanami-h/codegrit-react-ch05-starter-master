@@ -2,46 +2,39 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
-const LightStyle = styled.a({
+const ThemeSwitcherStyle = styled.li({
+  padding: '5px',
+  marginBottom: '7px'
+})
+
+const ThemeLetterStyle = styled.a({
   color: '#262626',
   cursor: 'pointer',
-  },({ theme }) => {
+  },({ chosen }) => {
     let switchColor = []
-    if(theme === 'light') {
+    if(chosen === true) {
       switchColor.push({ color: '#36cfc9' })
     } 
     return switchColor;
   }
 )
 
-const DarkStyle = styled.a({
-  color: '#262626',
-  cursor: 'pointer',
-  },({ theme }) => {
-    let switchColor = []
-    if(theme === 'dark') {
-      switchColor.push({ color: '#36cfc9' })
-    } else {
-      switchColor.push({ color: '#262626' })
-    }
-    return switchColor;
-  }
-)
-
-const ThemeSwitcher = ({ switchTheme }) => (
-  <ul className="theme-swither">
-    <li>
-      <LightStyle 
+const ThemeSwitcher = ({ theme, switchTheme }) => (
+  <ul>
+    <ThemeSwitcherStyle>
+      <ThemeLetterStyle 
+        chosen={theme === 'light'}
         onClick={(e) => switchTheme('light', e)}>
         Light
-      </LightStyle>
-    </li>
-    <li>
-      <DarkStyle
+      </ThemeLetterStyle>
+    </ThemeSwitcherStyle>
+    <ThemeSwitcherStyle>
+      <ThemeLetterStyle
+        chosen={theme === 'dark'}
         onClick={(e) => switchTheme('dark', e)}>
         Dark
-      </DarkStyle>
-    </li>
+      </ThemeLetterStyle>
+    </ThemeSwitcherStyle>
   </ul>
 );
 

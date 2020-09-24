@@ -7,7 +7,6 @@ import { ReactComponent as LoadingImg } from '../images/loading.svg';
 import { fetchData } from '../CardDataUtils';
 import styled from '@emotion/styled';
 
-
 const InstaCard = styled.article({
   display: 'flex',
   flexDirection: 'column',
@@ -24,18 +23,18 @@ const InstaCard = styled.article({
 })
 
 const EmptyBox = () => {
-  const loaderWrapperStyle = {
+  const LoaderWrapperStyle = styled.div({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%',
+    height: '600px',
     width: '100%',
-  }
+  })
   return (
     <InstaCard>
-      <div css={loaderWrapperStyle}>
+      <LoaderWrapperStyle>
         <LoadingImg />
-      </div>
+      </LoaderWrapperStyle>
     </InstaCard>
   );
 }
@@ -84,11 +83,11 @@ export default class extends Component {
       chosenId, 
       loadedOnce 
     } = this.state;
-    let instaCardClass = "insta-card";
+    // let instaCardClass = "insta-card";
     let articlePart;
-    if (theme === 'dark') {
-      instaCardClass = "insta-card insta-card-dark"
-    }
+    // if (theme === 'dark') {
+    //   instaCardClass = "insta-card insta-card-dark"
+    // }
     if (loading && loadedOnce === false) {
       articlePart = <EmptyBox />;
     } else {
