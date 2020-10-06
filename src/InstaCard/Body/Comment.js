@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const CommenterName = styled.a({
-  color: '#262626'
 }, ({ theme }) => {
   let darkMode = []
   if(theme === 'dark') {
